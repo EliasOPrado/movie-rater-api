@@ -7,6 +7,36 @@ class Movie(models.Model):
     title = models.CharField(max_length=32)
     description = models.TextField(max_length=360)
 
+    """
+    This function will be used as
+    a MovieSerializer fields
+
+    It will be: title, description, no_of_ratings
+    """
+    def no_of_ratings(self):
+        # local vars
+        ratings = Rating.objects.filter(movie=self)
+        return len(ratings)
+
+    """
+    This function will be used as
+    a MovieSerializer fields
+
+    It will be: title, description, no_of_ratings, avg_rating
+    """
+
+    def avg_rating(self):
+        sum = 0
+        ratings = Rating.objects.filter(movie=self)
+        # add ratings to sum
+        for rating in ratings:
+            sum += rating.stars
+        if len(ratings) > 0:
+            return int(sum / len(ratings))
+        else:
+            return 0
+
+
     def __str__(self):
         return self.title
 

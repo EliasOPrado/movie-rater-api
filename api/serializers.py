@@ -7,7 +7,9 @@ class MovieSerializers(ModelSerializer):
         fields = [
             'id',
             'title',
-            'description'
+            'description',
+            'no_of_ratings',
+            'avg_rating'
         ]
 
 class RatingSerializers(ModelSerializer):
