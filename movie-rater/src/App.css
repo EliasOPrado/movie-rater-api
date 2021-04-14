@@ -18,3 +18,15 @@
   grid-gap: 20px;
 }
 
+.orange {
+  color:orange;
+}
+
+.purple{
+  color: purple;
+}
+
+.rate-container {
+  margin-top: 20px;
+  border-top: 2px solid purple;
+}
