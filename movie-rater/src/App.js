@@ -8,7 +8,7 @@ function App() {
   const [selectedMovie, setSelectedMovie] = useState(null)
 
   useEffect(() => {
-    fetch("http://127.0.0.1:8080/api/movie/", {
+    fetch("http://127.0.0.1:8000/api/movie/", {
       method: 'GET',
       headers: {
         'Content-type':'application/json',
