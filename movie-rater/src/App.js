@@ -24,6 +24,10 @@ function App() {
     setSelectedMovie(movie)
   }
 
+  const loadMovie = movie => {
+    setSelectedMovie(movie)
+  }
+
   return (
     <div className="App">
       <header className="App-header">
@@ -32,7 +36,7 @@ function App() {
       <div className="layout">
       <MovieList movies={movies} movieClicked={movieClicked}/>
         
-        <MovieDetail movie={selectedMovie}/>
+        <MovieDetail movie={selectedMovie} updateMovie={loadMovie}/>
       </div>
     </div>
   );

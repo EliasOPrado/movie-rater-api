@@ -30,8 +30,8 @@ class MovieViewSet(ModelViewSet):
             movie = Movie.objects.get(id=pk)
             # the request is from the form field
             stars = request.data['stars']
-            user = request.user
-            # user = User.objects.get(id=1)
+            # user = request.user
+            user = User.objects.get(id=1)
 
             try:
                 rating = Rating.objects.get(user=user.id, movie=movie.id)
@@ -42,7 +42,7 @@ class MovieViewSet(ModelViewSet):
                 return Response(response, status=status.HTTP_200_OK)
 
             except:
-                rating = Rating.object.create(user=user,movie=movie, stars=stars)
+                rating = Rating.objects.create(user=user,movie=movie, stars=stars)
                 serializer = RatingSerializers(rating, many=False)
                 response = {'message': 'rating created', 'result': serializer.data}
                 return Response(response, status=status.HTTP_200_OK)
